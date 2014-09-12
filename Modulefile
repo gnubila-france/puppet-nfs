@@ -1,5 +1,5 @@
 name 'gnubila-france-nfs'
-version '0.0.1'
+version '0.0.2'
 author 'Baptiste Grenier <bgrenier@gnubila.fr>'
 summary 'ldap2zone configuration'
 description "This modules allows to configure nfs"
