@@ -1,14 +1,15 @@
-define nfs::export ($ensure=present,
-                    $share,
-                    $options='',
-                    $guest) {
-
+define nfs::export (
+  $ensure = 'present',
+  $share,
+  $options = '',
+  $guest,
+) {
   $concatshare = substitute($share, '/', '-')
   $concatguest_tmp = substitute($guest, '/','-')
   $concatguest_tmp2 = substitute($concatguest_tmp, '\[','_OSB_')
   $concatguest = substitute($concatguest_tmp2, '\]','_CSB_')
 
-  if ($options == '') {
+  if $options == '' {
     $content = "${share}     ${guest}\n"
   } else {
     $content = "${share}     ${guest}($options)\n"
@@ -22,4 +23,4 @@ define nfs::export ($ensure=present,
   }
 }
 
-# vim: set expandtab smarttab shiftwidth=2 tabstop=2 softtabstop=2 nocindent noautoindent:
+# vim: set et sta sw=2 ts=2 sts=2 noci noai:

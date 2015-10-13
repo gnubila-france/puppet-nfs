@@ -1,9 +1,11 @@
-define nfs::mount($ensure='present',
-                  $server,
-                  $share,
-                  $mountpoint,
-                  $server_options='',
-                  $client_options='auto') {
+define nfs::mount(
+  $ensure = 'present',
+  $server,
+  $share,
+  $mountpoint,
+  $server_options = '',
+  $client_options = 'auto',
+) {
 
   # use exported ressources
   @@nfs::export { "shared ${share} by ${server} for ${fqdn}":
@@ -24,17 +26,20 @@ define nfs::mount($ensure='present',
   }
 
   case $ensure {
-    present: {
+    'present': {
       exec { "create ${mountpoint} and parents":
         command => "mkdir -p ${mountpoint}",
         unless  => "test -d ${mountpoint}",
       }
       Mount["shared $share by $server"] {
-        require => [Exec["create ${mountpoint} and parents"], Class['nfs::client']],
         ensure  => 'mounted',
+        require => [
+          Exec["create ${mountpoint} and parents"],
+          Class['nfs::client'],
+          ],
       }
     }
-    absent: {
+    'absent': {
       file { $mountpoint:
         ensure  => 'absent',
         require => Mount["shared ${share} by ${server}"],
@@ -46,4 +51,4 @@ define nfs::mount($ensure='present',
   }
 }
 
-# vim: set expandtab smarttab shiftwidth=2 tabstop=2 softtabstop=2 nocindent noautoindent:
+# vim: set et sta sw=2 ts=2 sts=2 noci noai:

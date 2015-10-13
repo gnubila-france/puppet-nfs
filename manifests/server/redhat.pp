@@ -2,6 +2,7 @@ class nfs::server::redhat inherits nfs::client::redhat {
 
   # TODO if this file change, do we have to reload portmap/rpcbind and rpcsvcgssd also?
   file { '/etc/sysconfig/nfs':
+    ensure  => 'file',
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
@@ -10,17 +11,17 @@ class nfs::server::redhat inherits nfs::client::redhat {
     notify  => Exec['reload_nfs_srv'],
   }
 
-  service {'nfs':
+  service { 'nfs':
     ensure  => 'running',
     enable  => true,
     pattern => 'nfsd',
   }
 
-  exec {'reload_nfs_srv':
+  exec { 'reload_nfs_srv':
     command     => '/etc/init.d/nfs reload',
     refreshonly => true,
     require     => Package['nfs-utils'],
   }
 }
 
-# vim: set expandtab smarttab shiftwidth=2 tabstop=2 softtabstop=2 nocindent noautoindent:
+# vim: set et sta sw=2 ts=2 sts=2 noci noai:
