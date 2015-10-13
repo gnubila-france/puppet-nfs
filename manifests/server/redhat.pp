@@ -1,4 +1,5 @@
-class nfs::server::redhat inherits nfs::client::redhat {
+class nfs::server::redhat {
+  include ::nfs::client::redhat
 
   # TODO if this file change, do we have to reload portmap/rpcbind and rpcsvcgssd also?
   file { '/etc/sysconfig/nfs':
