@@ -54,8 +54,8 @@ class nfs::server {
   }
 
   case $::osfamily {
-    'Debian': { include nfs::server::debian}
-    'RedHat': { include nfs::server::redhat}
+    'Debian': { include ::nfs::server::debian}
+    'RedHat': { include ::nfs::server::redhat}
     default:  { fail "Unsupported OS familly ${::osfamily}" }
   }
 }
