@@ -42,8 +42,8 @@ class nfs::client::redhat {
   $netfsrequire = $::lsbmajdistrelease ? {
     '6'     => Service['nfslock'],
     default => [
-      Package['portmap'],
-      Package['nfslock']
+      Service['portmap'],
+      Service['nfslock']
     ],
   }
   service { 'netfs':
