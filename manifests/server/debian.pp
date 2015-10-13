@@ -1,4 +1,5 @@
-class nfs::server::debian inherits nfs::client::debian {
+class nfs::server::debian {
+  include ::nfs::client::debian
 
   # XXX is it needed to reboot for updating the loaded module options?
   file { '/etc/modprobe.d/local.conf':
