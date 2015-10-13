@@ -29,7 +29,7 @@ define nfs::export (
   if $options == '' {
     $content = "${share}     ${guest}\n"
   } else {
-    $content = "${share}     ${guest}($options)\n"
+    $content = "${share}     ${guest}(${options})\n"
   }
 
   common::concatfilepart {"share-${concatshare}-on-${concatguest}":
