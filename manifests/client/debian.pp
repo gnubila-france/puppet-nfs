@@ -8,14 +8,14 @@ class nfs::client::debian {
 
   service { 'nfs-common':
     ensure    => 'running',
-    enable    => 'true',
-    hasstatus => 'true',
+    enable    => true,
+    hasstatus => true,
     require   => Package['nfs-common'],
   }
   service { 'portmap':
     ensure    => 'running',
-    enable    => 'true',
-    hasstatus => 'false',
+    enable    => true,
+    hasstatus => false,
     require   => Package['portmap'],
   }
 }

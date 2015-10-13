@@ -32,7 +32,7 @@ class nfs::server::debian {
   }
 
   service { 'nfs-kernel-server':
-    enable  => 'true',
+    enable  => true,
     pattern => 'nfsd',
     require => Package['nfs-kernel-server'],
   }
