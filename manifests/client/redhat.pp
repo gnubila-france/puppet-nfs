@@ -3,7 +3,7 @@ class nfs::client::redhat {
     ensure => 'present',
   }
 
-  if ($lsbmajdistrelease == 6) {
+  if $::lsbmajdistrelease == 6 {
     package { 'rpcbind':
       ensure => 'present',
     }
@@ -29,7 +29,7 @@ class nfs::client::redhat {
     ensure    => 'running',
     enable    => true,
     hasstatus => true,
-    require   => $lsbmajdistrelease ? {
+    require   => $::lsbmajdistrelease ? {
       6       => Service['rpcbind'],
       default => [Package['portmap'], Package['nfs-utils']]
     },
@@ -37,7 +37,7 @@ class nfs::client::redhat {
 
   service { 'netfs':
     enable  => true,
-    require => $lsbmajdistrelease ? {
+    require => $::lsbmajdistrelease ? {
       6       => Service['nfslock'],
       default => [Service['portmap'], Service['nfslock']],
     },
