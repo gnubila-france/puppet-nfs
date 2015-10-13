@@ -25,22 +25,30 @@ class nfs::client::redhat {
     }
   }
 
+  $nfslockrequire = $::lsbmajdistrelease ? {
+    '6'     => Service['rpcbind'],
+    default => [
+      Package['portmap'],
+      Package['nfs-utils']
+    ],
+  }
   service { 'nfslock':
     ensure    => 'running',
     enable    => true,
     hasstatus => true,
-    require   => $::lsbmajdistrelease ? {
-      6       => Service['rpcbind'],
-      default => [Package['portmap'], Package['nfs-utils']]
-    },
+    require   => $nfslockrequire,
   }
 
+  $netfsrequire = $::lsbmajdistrelease ? {
+    '6'     => Service['nfslock'],
+    default => [
+      Package['portmap'],
+      Package['nfslock']
+    ],
+  }
   service { 'netfs':
     enable  => true,
-    require => $::lsbmajdistrelease ? {
-      6       => Service['nfslock'],
-      default => [Service['portmap'], Service['nfslock']],
-    },
+    require => $netfsrequire,
   }
 }
 
