@@ -1,6 +1,6 @@
 {
   "name": "gnubilafrance-nfs",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "Baptiste Grenier <bgrenier@gnubila.fr>",
   "license": "MIT",
   "summary": "Simple NFS client and server configuration",
