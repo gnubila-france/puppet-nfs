@@ -1,0 +1,39 @@
+{
+  "name": "gnubilafrance-nfs",
+  "version": "0.0.4",
+  "author": "Baptiste Grenier <bgrenier@gnubila.fr>",
+  "license": "MIT",
+  "summary": "Simple NFS client and server configuration",
+
+  "source": "https://github.com/gnubila-france/puppet-nfs",
+  "project_page": "https://github.com/gnubila-france/puppet-nfs",
+  "issues_url": "https://github.com/gnubila-france/puppet-nfs/issues",
+
+  "tags": [ "nfs" ],
+
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5",
+        "6"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    }
+  ],
+
+  "dependencies": [ ]
+}
