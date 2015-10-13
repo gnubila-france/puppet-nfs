@@ -1,5 +1,4 @@
-class nfs::client::debian inherits nfs::base {
-
+class nfs::client::debian {
   package { 'nfs-common':
     ensure => 'present',
   }

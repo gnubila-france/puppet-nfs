@@ -1,5 +1,4 @@
-class nfs::client::redhat inherits nfs::base {
-
+class nfs::client::redhat {
   package { 'nfs-utils':
     ensure => 'present',
   }
