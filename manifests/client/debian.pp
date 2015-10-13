@@ -5,7 +5,7 @@ class nfs::client::debian {
   package { 'portmap':
     ensure => 'present',
   }
- 
+
   service { 'nfs-common':
     ensure    => 'running',
     enable    => 'true',
@@ -20,4 +20,4 @@ class nfs::client::debian {
   }
 }
 
-# vim: set expandtab smarttab shiftwidth=2 tabstop=2 softtabstop=2 nocindent noautoindent:
+# vim: set et sta sw=2 ts=2 sts=2 noci noai:

@@ -7,7 +7,6 @@ class nfs::client::redhat {
     package { 'rpcbind':
       ensure => 'present',
     }
-
     service { 'rpcbind':
       ensure    => 'running',
       enable    => true,
@@ -18,7 +17,6 @@ class nfs::client::redhat {
     package { 'portmap':
       ensure => present,
     }
-
     service { 'portmap':
       ensure    => 'running',
       enable    => true,
@@ -36,7 +34,7 @@ class nfs::client::redhat {
       default => [Package['portmap'], Package['nfs-utils']]
     },
   }
- 
+
   service { 'netfs':
     enable  => true,
     require => $lsbmajdistrelease ? {
@@ -46,4 +44,4 @@ class nfs::client::redhat {
   }
 }
 
-# vim: set expandtab smarttab shiftwidth=2 tabstop=2 softtabstop=2 nocindent noautoindent:
+# vim: set et sta sw=2 ts=2 sts=2 noci noai:
