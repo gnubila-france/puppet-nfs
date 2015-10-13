@@ -1,9 +1,26 @@
+# == Define: nfs::export
+#
+# Configure an NFS export.
+#
+# === Authors
+#
+# Baptiste Grenier <bgrenier@gnubila.fr>
+#
+# === Copyright
+#
+# Copyright 2015 gnúbila
+#
 define nfs::export (
   $ensure = 'present',
-  $share,
   $options = '',
-  $guest,
+  $share = undef,
+  $guest = undef,
 ) {
+  validate_string($ensure)
+  validate_string($options)
+  validate_string($share)
+  validate_string($guest)
+
   $concatshare = substitute($share, '/', '-')
   $concatguest_tmp = substitute($guest, '/','-')
   $concatguest_tmp2 = substitute($concatguest_tmp, '\[','_OSB_')
