@@ -60,4 +60,4 @@ class nfs::server {
   }
 }
 
-# vim: set et smarttab sw=2 ts=2 softtabstop=2 nocindent noautoindent:
+# vim: set et sta sw=2 ts=2 sts=2 noci noai:
