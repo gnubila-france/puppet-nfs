@@ -7,7 +7,7 @@ class nfs::server::redhat {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    source  => "puppet:///modules/nfs/redhat-${lsbmajdistrelease}.nfsd.conf",
+    source  => "puppet:///modules/nfs/redhat-${::lsbmajdistrelease}.nfsd.conf",
     require => Package['nfs-utils'],
     notify  => Exec['reload_nfs_srv'],
   }
