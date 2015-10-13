@@ -3,7 +3,7 @@ class nfs::client::redhat {
     ensure => 'present',
   }
 
-  if $::lsbmajdistrelease == 6 {
+  if versioncmp($::lsbmajdistrelease, '6') == 0 {
     package { 'rpcbind':
       ensure => 'present',
     }
