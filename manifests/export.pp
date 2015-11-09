@@ -21,10 +21,10 @@ define nfs::export (
   validate_string($share)
   validate_string($guest)
 
-  $concatshare = substitute($share, '/', '-')
-  $concatguest_tmp = substitute($guest, '/','-')
-  $concatguest_tmp2 = substitute($concatguest_tmp, '\[','_OSB_')
-  $concatguest = substitute($concatguest_tmp2, '\]','_CSB_')
+  $concatshare = regsubst($share, '/', '-', 'G')
+  $concatguest_tmp = regsubst($guest, '/','-', 'G')
+  $concatguest_tmp2 = regsubst($concatguest_tmp, '\[','_OSB_', 'G')
+  $concatguest = regsubst($concatguest_tmp2, '\]','_CSB_', 'G')
 
   if $options == '' {
     $content = "${share}     ${guest}\n"
