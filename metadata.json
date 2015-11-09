@@ -2,7 +2,7 @@
   "name": "gnubilafrance-nfs",
   "version": "0.0.8",
   "author": "Baptiste Grenier <bgrenier@gnubila.fr>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "summary": "Simple NFS client and server configuration",
 
   "source": "https://github.com/gnubila-france/puppet-nfs",
