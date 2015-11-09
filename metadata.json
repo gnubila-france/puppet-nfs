@@ -1,6 +1,6 @@
 {
   "name": "gnubilafrance-nfs",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "author": "Baptiste Grenier <bgrenier@gnubila.fr>",
   "license": "Apache-2.0",
   "summary": "Simple NFS client and server configuration",
