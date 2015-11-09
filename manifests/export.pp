@@ -21,10 +21,10 @@ define nfs::export (
     $content = "${share}     ${guest}(${options})\n"
   }
 
-  common::concatfilepart {"share-${concatshare}-on-${concatguest}":
+  concat::fragment {"share-${concatshare}-on-${concatguest}":
     ensure  => $ensure,
     content => $content,
-    file    => '/etc/exports',
+    target  => '/etc/exports',
     notify  => Exec['reload_nfs_srv'],
   }
 }

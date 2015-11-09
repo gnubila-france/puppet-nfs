@@ -23,6 +23,13 @@ class nfs::server::redhat {
     refreshonly => true,
     require     => Package['nfs-utils'],
   }
+
+  @concat { '/etc/exports':
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    notify => Exec['reload_nfs_srv'],
+  }
 }
 
 # vim: set et sta sw=2 ts=2 sts=2 noci noai:
