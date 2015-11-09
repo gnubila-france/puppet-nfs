@@ -1,15 +1,6 @@
 # == Define: nfs::export
 #
 # Configure an NFS export.
-#
-# === Authors
-#
-# Baptiste Grenier <bgrenier@gnubila.fr>
-#
-# === Copyright
-#
-# Copyright 2015 gnúbila
-#
 define nfs::export (
   $ensure = 'present',
   $options = '',
