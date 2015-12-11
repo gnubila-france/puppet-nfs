@@ -1,6 +1,9 @@
 puppet-nfs
 ==========
 
+[![Puppet Forge](http://img.shields.io/puppetforge/v/gnubilafrance/nfs.svg)](https://forge.puppetlabs.com/gnubilafrance/nfs)
+[![Build Status](https://travis-ci.org/gnubila-france/puppet-nfs.png?branch=master)](https://travis-ci.org/gnubila-france/puppet-nfs)
+
 Puppet module for managing NFS.
 
 Based on old version of camptocamp/puppet-nfs module.
