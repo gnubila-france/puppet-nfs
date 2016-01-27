@@ -6,6 +6,8 @@ puppet-nfs
 
 Puppet module for managing NFS.
 
+Ports are static and hardcoded, firewall configuration too. PR welcome :)
+
 Based on old version of camptocamp/puppet-nfs module.
 
 # Dependencies
