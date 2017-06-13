@@ -25,10 +25,11 @@ class nfs::server::redhat {
   }
 
   @concat { '/etc/exports':
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0644',
-    notify => Exec['reload_nfs_srv'],
+    ensure  => $ensure,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    notify  => Exec['reload_nfs_srv'],
   }
 }
 
