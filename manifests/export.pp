@@ -24,7 +24,6 @@ define nfs::export (
   Concat <| title == '/etc/exports' |>
 
   concat::fragment {"share-${concatshare}-on-${concatguest}":
-    ensure  => $ensure,
     content => $content,
     target  => '/etc/exports',
     notify  => Exec['reload_nfs_srv'],
